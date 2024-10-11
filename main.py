@@ -2,7 +2,7 @@ import os
 
 from scripts.envs import *
 
-from scripts._1___get_artist_albums import *
+from scripts._1___get_artist_music import *
 from scripts._2___get_artist_albums import *
 from scripts._3___get_artist_albums import *
 from scripts._4___get_artist_albums import *
@@ -35,13 +35,13 @@ if __name__ == '__main__':
     artist_id = get_artist_id(sp)
     get_artist_albums(sp, artist_id)
     get_artist_singles(sp, artist_id)
+    get_artist_features(sp, artist_id)
 
     prints("Step 1", '-')
 
     
 
     # prints("Step 2")
-    # x2.get_album_ids()
     # prints("Step 2", '-')
 
     # prints("Step 3")
