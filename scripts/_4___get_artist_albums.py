@@ -29,17 +29,18 @@ def add_tracks_to_playlist(sp):
 # Filter this function to only run the functions you want to test
 # IE if you only want to run the Setlist API functions, comment out the Spotify API functions using the '#' symbol
 if __name__ == '__main__':
+    pass
     #load_dotenv()
 
     # Sets up API keys
     # TODO - update this function to be more dynamic
     # check if .env file exists
     # if it doesn't exist, run the setup_api_keys() function
-    if not os.path.exists('.env'):
-        setup_api_keys()
+    # if not os.path.exists('.env'):
+    #     setup_api_keys()
     
     # Initializes the SpotiPy Object
-    sp = load_and_initialize_spotify()
+    # sp = load_and_initialize_spotify()
 
     # # read all spotify track uris from track_uris/track_uris.txt
     # track_uris = []
