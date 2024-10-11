@@ -7,7 +7,7 @@ But... have you ever asked yourself:
 ### 2. How many songs by said artist do I not know?
 ### 3. How many songs by that same artist do I not know that might actually enjoy?!
 
-Well, I have the answer for all 3! There's probably quite a few...
+The answers might surprise you; there are probably quite a few tracks you've missed
 
 Statistics show that only 10-20% of an artist's discography accounts for the majority of streams. This is what's known as the Long-Tail Effect, as shown below:
 ![alt text](img/image.png)
@@ -18,7 +18,9 @@ This means that there's about 70-80% of songs that they haven't even listened to
 
 Because of this, I have developed a program that, given an artists name, will generate a Spotify Playlist with their entire discography. This includes all their albums, singles, and tracks they are featured on.
 
-To get started:
+Want to explore an artist's full discography? Follow the steps below to generate your playlist and discover new tracks!
+
+(this requires moderate familiarity with Spotify's API so do some research on that if you can)
 
 ## Steps to Download and Run This Python Project
 
