@@ -1,0 +1,12 @@
+# Gitignore file for Spotify API project
+
+# Files
+.env
+.cache
+how_to.md
+README.md
+
+# Folders
+/__pycache__/
+/historical_data/
+/scripts/__pycache__/
