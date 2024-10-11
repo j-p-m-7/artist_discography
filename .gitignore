@@ -4,7 +4,6 @@
 .env
 .cache
 how_to.md
-README.md
 
 # Folders
 /__pycache__/
