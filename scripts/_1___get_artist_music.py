@@ -1,6 +1,7 @@
 import os
 import json
 
+
 def get_artist_id(sp):
     artist = os.getenv('ARTIST')
     artist_json = sp.search(q=artist, type='artist')
@@ -95,45 +96,6 @@ def get_artist_features(sp, artist_id):
     print("All features acquired")
     print("Total features acquired:", counter, "\n")
 
-# Main Function
-# Filter this function to only run the functions you want to test
-# IE if you only want to run the Setlist API functions, comment out the Spotify API functions using the '#' symbol
+
 if __name__ == '__main__':
-    from envs import *
-
-    # Sets up API keys
-    if not os.path.exists('.env'):
-        setup_api_keys()
-    
-    # Initializes the SpotiPy Object
-    sp = load_and_initialize_spotify()
-    artist = os.getenv('ARTIST')
-    artist_json = sp.search(q=artist, type='artist')
-    artist_id = artist_json['artists']['items'][0]['id']
-
-    print("Artist ID for artist", artist, "is", artist_id)
-
-    final_json = {"data": []}
-
-    counter = 0
-    offset = 0
-
-    while True:
-        artist_features = sp.artist_albums(artist_id, include_groups='appears_on', limit=50, offset=offset)
-        if artist_features['items'] == []:
-            break
-
-        print("Processing", len(artist_features['items']), "features...")
-        final_json["data"].extend(artist_features["items"])
-
-        counter += len(artist_features['items'])
-        offset += len(artist_features['items'])
-    
-
-    # save json to file
-    artist_features_json = json.dumps(final_json, indent=4)
-    with open(f'data/albums/artist_features.json', 'w') as f:
-        f.write(artist_features_json)
-
-    print("All features acquired")
-    print("Total features acquired:", counter, "\n")
+    pass

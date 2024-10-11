@@ -7,6 +7,7 @@ from spotipy.oauth2 import SpotifyOAuth
 # Loads environment variables
 load_dotenv()
 
+
 # Reads the .env file and returns a dictionary of the environment variables
 def read_env_file():
     env_vars = {}
@@ -63,6 +64,7 @@ def load_and_initialize_spotify():
 
 
 if __name__ == '__main__':
-    setup_api_keys()
-    sp = load_and_initialize_spotify()
-    print(sp.current_user())
+    pass
+    # setup_api_keys()
+    # sp = load_and_initialize_spotify()
+    # print(sp.current_user())

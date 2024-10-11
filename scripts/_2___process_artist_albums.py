@@ -3,16 +3,6 @@ import json
 from pathlib import Path
 
 
-## - Add a function to clear the jsons folder
-## TODO 
-#     # clear jsons folder
-#     # for file in files:
-#     #     os.remove(f'data/{file}')
-## TODO 
-
-
-
-
 def load_json(file_path):
     """Helper function to load a JSON file."""
     print(f"Loading JSON file: {file_path}")
@@ -98,20 +88,5 @@ def process_features(sp, artist_id):
     print("All feature tracks processed and saved.\n\n\n")
 
 
-
 if __name__ == '__main__':
     pass
-    # from envs import *
-
-    # # Sets up API keys
-    # if not os.path.exists('.env'):
-    #    setup_api_keys()
-    
-    # # Initializes the SpotiPy Object
-    # sp = load_and_initialize_spotify()
-    # artist_id = '5K4W6rqBFWDnAN6FQUkS6x'
-    
-    # process_albums_and_singles(sp)
-    # process_features(sp, artist_id)
-
-    # print("\nAll processes completed.")

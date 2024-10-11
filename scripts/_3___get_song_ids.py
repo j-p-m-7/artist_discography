@@ -1,8 +1,6 @@
 import os
 import json
 
-# open data/tracks/ and for all files with .json extension, load the json file, extract uri from each track
-# and write the uri to a .txt file
 
 def get_track_uris():
     # get all files in data/tracks/
@@ -24,6 +22,7 @@ def get_track_uris():
             f.write(f'{track_uri}\n')
 
     print("\nProcessed all song IDs\n")
+
 
 if __name__ == '__main__':
     pass

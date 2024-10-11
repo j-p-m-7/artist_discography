@@ -1,6 +1,6 @@
 import os
 import json
-#from dotenv import load_dotenv
+
 
 def add_tracks_to_playlist(sp):
         # read all spotify track uris from track_uris/track_uris.txt
@@ -22,7 +22,6 @@ def add_tracks_to_playlist(sp):
             else:
                 print(f'Processed tracks {i} to {len(track_uris)}...')
                 print('\nAll tracks added to playlist')
-
 
 
 if __name__ == '__main__':
