@@ -4,6 +4,7 @@
 .env
 .cache
 how_to.md
+.DS_Store
 
 # Folders
 /__pycache__/
