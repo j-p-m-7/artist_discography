@@ -19,47 +19,46 @@ def load_json(file_path):
     with open(file_path, 'r') as f:
         return json.load(f)
 
-def get_album_ids(albums_json):
-    """Extract album_ids from the JSON data."""
-    print("Extracting album_ids from JSON data...")
-    album_ids = [album['id'] for album in albums_json['data']]
-    return album_ids
+def get_album_ids_and_names(albums_json):
+    """Extract album_ids and album names from the JSON data."""
+    albums_info = [(album['id'], album['name']) for album in albums_json['data']]
+    return albums_info
 
 def get_tracks_from_album(sp, album_id):
     """Fetch all tracks from an album using the album_id."""
-    print(f"Fetching tracks for album_id: {album_id}")
     album_tracks = sp.album_tracks(album_id)
     return album_tracks['items']
 
 def process_albums_and_singles(sp):
     """Main process to extract album_ids, fetch tracks, and save to final JSON."""
-    print("Processing albums and singles...")
+
     # Load the albums and singles JSONs
     albums_json = load_json('data/albums/artist_albums.json')
     singles_json = load_json('data/albums/artist_singles.json')
 
-    # Extract album_ids from both albums and singles
-    album_ids = get_album_ids(albums_json)
-    single_ids = get_album_ids(singles_json)
-    
-    # Combine album_ids and single_ids
-    all_album_ids = album_ids + single_ids
-    
+    # Extract album_ids and names from both albums and singles
+    albums_info = get_album_ids_and_names(albums_json)
+    singles_info = get_album_ids_and_names(singles_json)
+
+    # Combine album info from albums and singles
+    all_albums_info = albums_info + singles_info
+
     # Initialize final JSON to hold all track data
     final_json = {"tracks": []}
 
-    # Loop through each album_id and fetch all tracks
-    for album_id in all_album_ids:
-        print(f"Processing tracks for album_id: {album_id}")
+    # Loop through each album and fetch all tracks
+    for album_id, album_name in all_albums_info:
+        print(f"Processing tracks for album: {album_name} (ID: {album_id})")
         album_tracks = get_tracks_from_album(sp, album_id)
         final_json["tracks"].extend(album_tracks)
+        print(f"Total tracks processed: {len(album_tracks)}")
 
     # Save the final tracks JSON to file
     tracks_json = json.dumps(final_json, indent=4)
     with open(f'data/tracks/artist_tracks.json', 'w') as f:
         f.write(tracks_json)
 
-    print("All tracks processed and saved.")
+    print("All tracks processed and saved.\n\n\n")
 
 def process_features(sp, artist_id):
     """Main process to extract feature_ids, fetch tracks, and save to final JSON."""
@@ -73,42 +72,46 @@ def process_features(sp, artist_id):
     filtered_data = {"data": filtered_data}
 
     # Extract feature_ids from features
-    feature_ids = get_album_ids(filtered_data)
+    feature_ids = get_album_ids_and_names(filtered_data)
     
     # Initialize final JSON to hold all track data
     final_json = {"tracks": []}
 
-    # Loop through each feature_id and fetch all tracks containing the artist
-    for feature_id in feature_ids:
-        print(f"Processing tracks for feature_id: {feature_id}")
+    # Loop through each album and fetch all tracks
+    for feature_id, feature_name in feature_ids:
+        print(f"Processing tracks for feature: {feature_name} (ID: {feature_id})")
         data = get_tracks_from_album(sp, feature_id)
         
         # Load to json object with key "tracks"
         data = {"tracks": data}
 
-        artist_tracks = [track for track in data['tracks'] if any(artist['id'] == artist_id for artist in track['artists'])]
-        final_json["tracks"].extend(artist_tracks)
+        feature_tracks = [track for track in data['tracks'] if any(artist['id'] == artist_id for artist in track['artists'])]
+        final_json["tracks"].extend(feature_tracks)
+
+        print(f"Total tracks processed: {len(feature_tracks)}")
 
     # Save the final tracks JSON to file
     tracks_json = json.dumps(final_json, indent=4)
     with open(f'data/tracks/artist_tracks_features.json', 'w') as f:
         f.write(tracks_json)
 
-    print("All feature tracks processed and saved.")
+    print("All feature tracks processed and saved.\n\n\n")
 
-# Main Function
-# Filter this function to only run the functions you want to test
-# IE if you only want to run the Setlist API functions, comment out the Spotify API functions using the '#' symbol
+
+
 if __name__ == '__main__':
-    from envs import *
+    pass
+    # from envs import *
 
-    # Sets up API keys
-    if not os.path.exists('.env'):
-       setup_api_keys()
+    # # Sets up API keys
+    # if not os.path.exists('.env'):
+    #    setup_api_keys()
     
-    # Initializes the SpotiPy Object
-    sp = load_and_initialize_spotify()
-    artist_id = '5K4W6rqBFWDnAN6FQUkS6x'
+    # # Initializes the SpotiPy Object
+    # sp = load_and_initialize_spotify()
+    # artist_id = '5K4W6rqBFWDnAN6FQUkS6x'
     
-    #process_albums_and_singles(sp)
-    process_features(sp, artist_id)
+    # process_albums_and_singles(sp)
+    # process_features(sp, artist_id)
+
+    # print("\nAll processes completed.")
