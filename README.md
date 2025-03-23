@@ -1,8 +1,6 @@
 ## Full Artist Discography
 
-Do you like music? What kind of question is that, of course you do! I haven't met anyone who doesn't like some form of music.
-
-But... have you ever asked yourself:
+Have you ever asked yourself:
 ### 1. How many songs does an artist actually have? 
 ### 2. How many songs by said artist do I not know?
 ### 3. How many songs by that same artist do I not know that might actually enjoy?!
