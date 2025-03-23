@@ -79,11 +79,5 @@ This project includes a `run.sh` script that handles dependency installation and
     ```
   - On **Windows**: You can download Python 3.11.10 from the official site: [https://www.python.org/downloads/release/python-3110/](https://www.python.org/downloads/release/python-3110/)
 
-### 5. Testing or Running Additional Scripts
-If the repository includes tests or additional scripts, the documentation should provide instructions for running them. For example, to run tests in a Python project:
-
-   `pytest`
-
-Refer to the repository’s documentation for more detailed instructions if required.
 
 Let me know what you think!! Happy listneing :)
