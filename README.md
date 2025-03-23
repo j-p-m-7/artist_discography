@@ -16,7 +16,7 @@ In terms of general knowledge of an artist's songs, most listeners only know abo
 
 This means that there's about 70-80% of songs that they haven't even listened to! This could encompass features, B-sides, or even just hits that they're not aware of!
 
-Because of this, I have developed a program that, given an artists name, will generate a Spotify Playlist with their entire discography. This includes all their albums, singles, and tracks they are featured on.
+Because of this, I have developed a program that, given an artists name, will generate a Spotify Playlist with their entire discography. This includes all their albums, singles, and tracks they are featured on. Now you can passively listen to their discography and hopefully discover new songs you enjoy.
 
 Want to explore an artist's full discography? Follow the steps below to generate your playlist and discover new tracks!
 
